@@ -1,0 +1,10 @@
+FROM chinachu/mirakurun
+
+RUN apt update && apt install -y git make automake\
+	&& git clone https://github.com/stz2012/recpt1.git \
+	&& cd recpt1/recpt1 \
+	&& ./autogen.sh && ./configure --enable-b25 && make \
+	&& chmod +x  /app/recpt1/recpt1/recpt1 \
+	&& ln -s /app/recpt1/recpt1/recpt1 /usr/bin/recpt1
+
+
